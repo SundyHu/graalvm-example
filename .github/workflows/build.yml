@@ -47,5 +47,6 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: build-artifacts ${{ matrix.version }} on ${{ matrix.os }}
+          retention-days: 1
           path: |
             target/*.exe

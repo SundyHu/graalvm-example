@@ -48,6 +48,9 @@
                     <fallback>false</fallback>
                     <debug>false</debug>
                     <verbose>true</verbose>
+                    <buildArgs>
+                        <buildArg>-march=compatibility</buildArg>
+                    </buildArgs>
                 </configuration>
                 <executions>
                     <execution>
