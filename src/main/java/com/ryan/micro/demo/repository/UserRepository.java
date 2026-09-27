@@ -1,9 +1,9 @@
-//package com.ryan.micro.demo.repository;
-//
-//import com.ryan.micro.demo.model.User;
-//import org.springframework.data.repository.CrudRepository;
-//import org.springframework.stereotype.Repository;
-//
-//@Repository
-//public interface UserRepository extends CrudRepository<User, Integer> {
-//}
+package com.ryan.micro.demo.repository;
+
+import com.ryan.micro.demo.model.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Integer> {
+}

@@ -37,10 +37,10 @@
             <artifactId>hsqldb</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -60,6 +60,18 @@
                     <verbose>true</verbose>
                     <buildArgs>
                         <buildArg>-march=compatibility</buildArg>
+                        <buildArg>
+                            -H:ReflectionConfigurationFiles=src/main/resources/META-INF/native-image/reflect-config.json
+                        </buildArg>
+                        <buildArg>
+                            -H:ResourceConfigurationResources=src/main/resources/META-INF/native-image/resource-config.json
+                        </buildArg>
+                        <buildArg>
+                            -H:DynamicProxyConfigurationResources=src/main/resources/META-INF/native-image/proxy-config.json
+                        </buildArg>
+                        <buildArg>
+                            -H:JNIConfigurationResources=src/main/resources/META-INF/native-image/jni-config.json
+                        </buildArg>
                     </buildArgs>
                 </configuration>
                 <executions>
