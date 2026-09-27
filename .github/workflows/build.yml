@@ -1,0 +1,51 @@
+name: build GraalVM image
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  build-native:
+    name: 'Build GraalVM Native Image ${{ matrix.platform}}'
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+        include:
+          - os: 'windows-latest'
+            platform: 'win-amd64'
+    runs-on: ${{matrix.os}}
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v6
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          #          distribution: 'graalvm'
+          distribution: 'graalvm-community'
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          cache: maven
+      - name: Example step
+        run: |
+          echo "GRAALVM_HOME: $GRAALVM_HOME"
+          echo "JAVA_HOME: $JAVA_HOME"
+          java --version
+          native-image --version
+      - name: build by maven
+        shell: bash
+        run: |
+          mvn -Pnative package
+          ls target
+      #          java  -agentlib:native-image-agent=config-output-dir=./config -jar target/native-logging-1.0.0-SNAPSHOT.jar
+      #          target/native-logging.exe
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: build-artifacts ${{ matrix.version }} on ${{ matrix.os }}
+          path: |
+            target/*.exe
