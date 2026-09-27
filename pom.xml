@@ -61,10 +61,10 @@
                     <buildArgs>
                         <buildArg>-march=compatibility</buildArg>
                         <buildArg>
-                            -H:ReflectionConfigurationFiles=src/main/resources/META-INF/native-image/reflect-config.json
+                            -H:ReflectionConfigurationFiles=./src/main/resources/META-INF/native-image/reflect-config.json
                         </buildArg>
                         <buildArg>
-                            -H:ResourceConfigurationResources=src/main/resources/META-INF/native-image/resource-config.json
+                            -H:ResourceConfigurationResources=./src/main/resources/META-INF/native-image/resource-config.json
                         </buildArg>
 <!--                        <buildArg>-->
 <!--                            -H:DynamicProxyConfigurationResources=proxy-config.json-->
