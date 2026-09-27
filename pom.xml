@@ -69,9 +69,9 @@
                         <buildArg>
                             -H:DynamicProxyConfigurationResources=src/main/resources/META-INF/native-image/proxy-config.json
                         </buildArg>
-                        <buildArg>
-                            -H:JNIConfigurationResources=src/main/resources/META-INF/native-image/jni-config.json
-                        </buildArg>
+<!--                        <buildArg>-->
+<!--                            -H:JNIConfigurationResources=src/main/resources/META-INF/native-image/jni-config.json-->
+<!--                        </buildArg>-->
                     </buildArgs>
                 </configuration>
                 <executions>
